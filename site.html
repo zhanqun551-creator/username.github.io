@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>站点详情</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>站点分类与内容</h1>
+  <div id="categories"></div>
+  <div id="samples"></div>
+
+  <script src="main.js"></script>
+  <script src="data.js"></script>
+  <script>
+    // 获取 URL 参数，查找对应的站点数据
+    const urlParams = new URLSearchParams(window.location.search);
+    const siteName = urlParams.get('site');
+    const site = sites.find(s => s.name === siteName);
+
+    // 渲染分类页面
+    window.onload = function() {
+      if (site) {
+        const categoriesDiv = document.getElementById('categories');
+        const samplesDiv = document.getElementById('samples');
+
+        // 渲染分类
+        site.categories.forEach(category => {
+          const categoryLink = document.createElement('a');
+          categoryLink.href = category.url;
+          categoryLink.textContent = category.title;
+          categoryLink.classList.add('category-link');
+          categoriesDiv.appendChild(categoryLink);
+          categoriesDiv.appendChild(document.createElement('br'));
+        });
+
+        // 生成并渲染样本链接
+        const samples = genSamples(site, 3);  // 每站随机 3 个样本
+        samples.forEach(url => {
+          const sampleLink = document.createElement('a');
+          sampleLink.href = url;
+          sampleLink.textContent = `样本: ${url}`;
+          sampleLink.classList.add('sample-link');
+          samplesDiv.appendChild(sampleLink);
+          samplesDiv.appendChild(document.createElement('br'));
+        });
+      }
+    };
+  </script>
+</body>
+</html>
