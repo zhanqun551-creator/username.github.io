@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>分类页</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+<body>
+<header>
+    <h1>分类页</h1>
+</header>
+<div class="container">
+    <h2>选择分类</h2>
+    <ul id="category-list"></ul>
+    <h2>分类站点</h2>
+    <ul id="filtered-sites"></ul>
+</div>
+
+<script>
+const categoryList = document.getElementById('category-list');
+categories.forEach(cat => {
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="#" onclick="filterCategory('${cat}');return false;">${cat}</a>`;
+    categoryList.appendChild(li);
+});
+
+const filteredSites = document.getElementById('filtered-sites');
+function filterCategory(cat) {
+    filteredSites.innerHTML = '';
+    sites.filter(s => s.category === cat).forEach(site => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="content.html?url=${encodeURIComponent(site.url)}">${site.name}</a>`;
+        filteredSites.appendChild(li);
+    });
+}
+</script>
+</body>
+</html>
