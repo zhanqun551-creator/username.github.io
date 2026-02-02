@@ -15,19 +15,23 @@ const sites = [
       max: 84450       // 最大 ID
     }
   },
-  {
-    name: "newsite.com",
-    home: "https://www.newsite.com/",
-    sitemap: "https://www.newsite.com/sitemap.xml",
+  
+ {
+    name: "tzgcjx.cn",
+    home: "https://www.tzgcjx.cn/",
+    sitemap: "https://www.tzgcjx.cn/sitemap.xml",
     categories: [
-      { title: "category1", url: "https://www.newsite.com/category1.html" },
-      { title: "category2", url: "https://www.newsite.com/category2.html" }
+      { title: "starwayo-t1", url: "https://www.tzgcjx.cn/starwayo/t1.html" },
+      { title: "starwayo-t2", url: "https://www.tzgcjx.cn/starwayo/t2.html" },
+      { title: "starwayo-t3", url: "https://www.tzgcjx.cn/starwayo/t3.html" },
+      { title: "starwayo-t4", url: "https://www.tzgcjx.cn/starwayo/t4.html" }
     ],
     content: {
-      dir: "newsite_content", // 内容页目录
-      min: 1,
-      max: 10000
+      dir: "netyingshi123", // 内容页目录
+      min: 1,           // 最小 ID
+      max: 84450       // 最大 ID
     }
-  }
-  // 可以继续添加其他站点
+  },
+
+  
 ];
