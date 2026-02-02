@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>站点详情</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+<body>
+<header>
+    <h1>站点详情</h1>
+</header>
+<div class="container" id="content"></div>
+
+<script>
+function getQuery(name) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+}
+const url = decodeURIComponent(getQuery('url'));
+const site = sites.find(s => s.url === url);
+const container = document.getElementById('content');
+if(site) {
+    container.innerHTML = `
+        <h2>${site.name}</h2>
+        <p>分类: ${site.category}</p>
+        <p>${site.desc}</p>
+        <p>网址: <a href="${site.url}" target="_blank">${site.url}</a></p>
+    `;
+} else {
+    container.innerHTML = "<p>未找到站点信息</p>";
+}
+</script>
+</body>
+</html>
