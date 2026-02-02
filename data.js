@@ -1,11 +1,21 @@
-// 站点数据示例，可以放100个站点
-// 每个对象: {name: "站点名称", url: "https://example.com", category: "分类名称", desc: "描述信息"}
-const sites = [
-    {name: "站点1", url: "https://site1.com", category: "电影", desc: "电影站点示例"},
-    {name: "站点2", url: "https://site2.com", category: "电影", desc: "电影站点示例"},
-    {name: "站点3", url: "https://site3.com", category: "电影", desc: "电影站点示例"},
-    // ...继续填充100个站点
-];
+{
+  name: "syxuanan.cn",
 
-// 获取所有分类
-const categories = [...new Set(sites.map(s => s.category))];
+  home: "https://www.syxuanan.cn/",
+  sitemap: "https://www.syxuanan.cn/sitemap.xml",
+
+  // 分类页（title目录页需要与网站目录匹配）
+  categories: [
+    { title: "okdoc-t1", url: "https://www.syxuanan.cn/okdoc/t1.html" },
+    { title: "okdoc-t2", url: "https://www.syxuanan.cn/okdoc/t2.html" },
+    { title: "okdoc-t3", url: "https://www.syxuanan.cn/okdoc/t3.html" },
+    { title: "okdoc-t4", url: "https://www.syxuanan.cn/okdoc/t4.html" }
+  ],
+
+  // 🔴 内容页规则（重点）
+  content: {
+    dir: "yeslookx",     // 内容目录（每站不同）
+    min: 1,
+    max: 84450
+  }
+}
