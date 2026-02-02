@@ -3,28 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>站点目录</title>
+  <title>站点列表</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>站点目录</h1>
+  <h1>站点列表</h1>
   <div id="site-list"></div>
 
-  <script src="main.js"></script>
   <script src="data.js"></script>
+  <script src="main.js"></script>
   <script>
-    // 加载站点数据并生成站点列表
-    window.onload = function() {
-      const siteListDiv = document.getElementById('site-list');
-      sites.forEach(site => {
-        const link = document.createElement('a');
-        link.href = `site.html?site=${site.name}`;
-        link.textContent = site.name;
-        link.classList.add('site-link');
-        siteListDiv.appendChild(link);
-        siteListDiv.appendChild(document.createElement('br'));
-      });
-    };
+    const siteListDiv = document.getElementById('site-list');
+
+    sites.forEach(site => {
+      const siteDiv = document.createElement('div');
+      siteDiv.classList.add('site-item');
+
+      // 站点名称，点击跳转到 site.html
+      const siteLink = document.createElement('a');
+      siteLink.href = `site.html?site=${site.name}`;
+      siteLink.textContent = site.name;
+      siteLink.classList.add('site-name');
+      siteLink.target = "_blank";
+      siteDiv.appendChild(siteLink);
+
+      siteDiv.appendChild(document.createElement('br'));
+
+      // 主页链接
+      const homeLink = document.createElement('a');
+      homeLink.href = site.home;
+      homeLink.textContent = "访问主页";
+      homeLink.target = "_blank";
+      siteDiv.appendChild(homeLink);
+
+      siteDiv.appendChild(document.createElement('br'));
+
+      // Sitemap 链接
+      if (site.sitemap) {
+        const sitemapLink = document.createElement('a');
+        sitemapLink.href = site.sitemap;
+        sitemapLink.textContent = "查看 Sitemap";
+        sitemapLink.target = "_blank";
+        siteDiv.appendChild(sitemapLink);
+      }
+
+      siteListDiv.appendChild(siteDiv);
+      siteListDiv.appendChild(document.createElement('hr'));
+    });
   </script>
 </body>
 </html>
