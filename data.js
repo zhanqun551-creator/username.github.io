@@ -1050,7 +1050,7 @@ const sites = [
   
   {
     name: "wupeitong.com",
-    home: "https://wwwwupeitong.com/",
+    home: "https://www.wupeitong.com/",
     sitemap: "https://www.wupeitong.com/sitemap.xml",
     categories: [
       { title: "medianet-t1", url: "https://www.wupeitong.com/medianet/t1.html" },
